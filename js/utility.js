@@ -10,6 +10,13 @@ function drawCirc(x, y, radius, r, g, b, a, context ){
 
 //Main update to screen
 function updateScreen(){
+
+	//	if( document.visibilityState == "visible" ){
+	//		screen.mozLockOrientation("landscape");
+	//	}else{
+	//		screen.mozUnlockOrientation();
+	//	}
+
 	BumperState.context.clearRect(0,0,BumperState.canvas.width, BumperState.canvas.height);
 	BumperState.context.mozImageSmoothingEnabled = false;
 	BumperState.context.font = '12pt Calibri';

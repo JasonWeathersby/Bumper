@@ -3,6 +3,7 @@ window.onload = init;
 
 //Setup function to reset start location
 function setup(){
+
 	BumperState.canvas = document.getElementById('myCanvas');
 	BumperState.canvas.height= window.innerHeight;
 	BumperState.canvas.width = window.innerWidth;
@@ -170,12 +171,18 @@ function slideBall(evt) {
 
 //Set that the ball has been touched 
 function startBallEvent(evt){
-		var chk = checkGotCue(evt);
-		if( chk ){
-			BumperState.ballSelected = true;
-		}else{
-			BumperState.ballSelected = false;
-		}
+	//Reset Ball if moving an get a touch event
+	//This will also decrement the lives
+	if( BumperState.ballMoving){
+		setup();
+	}
+		
+	var chk = checkGotCue(evt);
+	if( chk ){
+		BumperState.ballSelected = true;
+	}else{
+		BumperState.ballSelected = false;
+	}
 }
 
 //Ball has been released and needs to start sliding
@@ -241,7 +248,6 @@ function init(){
 	window.addEventListener( 'resize', function(evt) {
 		setup();
 	}, false);
-	
-	
+
 
 }
