@@ -1,5 +1,6 @@
 
 //Utility function to draw circles
+//uses context param because offscreen canvas use
 function drawCirc(x, y, radius, r, g, b, a, context ){
 	context.beginPath();
 	context.arc(x, y, radius, 0, 2 * Math.PI, false);
@@ -8,6 +9,15 @@ function drawCirc(x, y, radius, r, g, b, a, context ){
 	context.closePath();
 }
 
+//Utility function to draw a line
+function drawLine( beginX, beginY, endX, endY ){
+	BumperState.context.strokeStyle ='rgba(200,200,200,0.7)'
+	BumperState.context.beginPath();
+	BumperState.context.moveTo(beginX,beginY);
+	BumperState.context.lineTo(endX,endY);
+	BumperState.context.closePath();
+	BumperState.context.stroke();
+}
 //Main update to screen
 function updateScreen(){
 

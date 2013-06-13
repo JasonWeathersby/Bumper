@@ -155,7 +155,8 @@ function checkGotCue( evt) {
 	}	
 	var dx = xsel-BumperState.BALLSTARTX;
 	var dy = ysel-BumperState.BALLSTARTY;
-	return ( !BumperState.ballMoving && dx*dx+dy*dy <= BumperState.ballRadius*BumperState.ballRadius*3);
+	//console.log( "dx " + dx*dx+dy*dy +  " < " +BumperState.ballRadius*BumperState.ballRadius*4);
+	return ( !BumperState.ballMoving && dx*dx+dy*dy <= BumperState.ballRadius*BumperState.ballRadius*4);
 }
 
 //Slide ball based on how tragectory and length of drag
@@ -215,7 +216,10 @@ function ballMoveEvent(evt){
 			updateScreen();
 			BumperState.slideX = x;
 			BumperState.slideY = y;
+			drawLine( BumperState.BALLSTARTX, BumperState.BALLSTARTY, x, y );			
 			drawCue( x, y, 0.15, BumperState.ballRadius);
+			
+			
 		}
 }	
 	
